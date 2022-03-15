@@ -5,5 +5,5 @@ from core import models
 class TagSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Tag
-        fields = '__all__'
+        fields = ['id', 'name']
         read_only_fields = ('id',)
