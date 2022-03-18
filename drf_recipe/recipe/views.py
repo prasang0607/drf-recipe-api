@@ -7,7 +7,7 @@ from recipe import serializers
 
 class BaseRecipeAttrViewSet(viewsets.GenericViewSet, mixins.ListModelMixin,
                             mixins.CreateModelMixin):
-    """ Base viewset for user owned recipe attributes """
+    """ Base view set for user owned recipe attributes """
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
 
@@ -43,4 +43,11 @@ class RecipeViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         """ Retrieve recipes for authenticated user """
         return self.queryset.filter(user=self.request.user). \
-            order_by('-id')
+            order_by('id')
+
+    def get_serializer_class(self):
+        """ Return appropriate serializer class """
+        if self.action == 'retrieve':
+            return serializers.RecipeDetailSerializer
+
+        return self.serializer_class

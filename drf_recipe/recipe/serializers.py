@@ -36,3 +36,9 @@ class RecipeSerializer(serializers.ModelSerializer):
         model = models.Recipe
         exclude = ('user',)
         read_only_fields = ('id',)
+
+
+class RecipeDetailSerializer(RecipeSerializer):
+    """ Serializes a recipe object """
+    ingredients = IngredientSerializer(many=True, read_only=True)
+    tags = TagSerializer(many=True, read_only=True)
