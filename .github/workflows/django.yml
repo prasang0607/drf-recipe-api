@@ -29,5 +29,11 @@ jobs:
 #       run: |
 #         flake8 drf_recipe/
     - name: Run Tests
+      env:
+        DB_USER: ${{ secrets.DB_USER }}
+        DB_NAME: ${{ secrets.DB_NAME }}
+        DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+        DB_HOST: ${{ secrets.DB_HOST }}
+        DB_PORT: ${{ secrets.DB_PORT }}
       run: |
         cd drf_recipe && python manage.py test --failfast --noinput
