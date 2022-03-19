@@ -30,4 +30,4 @@ jobs:
 #         flake8 drf_recipe/
     - name: Run Tests
       run: |
-        cd drf_recipe && python manage.py test --failfast --noinput -v 2
+        cd drf_recipe && python manage.py test --failfast --noinput
