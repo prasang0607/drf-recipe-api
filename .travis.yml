@@ -9,4 +9,4 @@ install:
 script:
   - flake8 drf_recipe/
   - python drf_recipe/manage.py migrate 
-  - cd drf_recipe && python manage.py test --failfast --noinput -v 2
+  - cd drf_recipe && python manage.py test --failfast --noinput -v 2 --parallel 2
