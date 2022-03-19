@@ -25,9 +25,9 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    - name: Analysing the code with flake8
-      run: |
-        flake8 drf_recipe/
+#     - name: Analysing the code with flake8
+#       run: |
+#         flake8 drf_recipe/
     - name: Run Tests
       run: |
         cd drf_recipe && python manage.py test --failfast --noinput -v 2
